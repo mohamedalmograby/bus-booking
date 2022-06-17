@@ -5,7 +5,7 @@ use App\Models\Seat;
 use App\Models\Reservation;
 use DB;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 use App\Services\BookingService;
 
 class ApiController extends Controller
@@ -38,7 +38,7 @@ class ApiController extends Controller
         $startCityId = $body['start_city_id'];
         $endCityId = $body['end_city_id'];
         $seatId = $body['seat_id'];
-        $userId = $body['user_id'];
+        $userId = Auth::user()->id;
         
         $seat = Seat::find($seatId);
         $bus = $seat->bus()->first();
