@@ -23,6 +23,7 @@ composer  // TODO : add  add composer image to docker composer file
   ```
   composer install
   ```
+- rename `.env.example` file to `.env` 
 - to build the database tables and presist seeding data into it run this command 
   ```
   docker-compose exec php  php /var/www/html/artisan migrate:fresh --seed
