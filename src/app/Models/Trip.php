@@ -18,4 +18,19 @@ class Trip extends Model
     function buses(){
         return $this->hasMany(Bus::class);
     }
+
+    static function passThroughCities($citiesIds){
+        foreach ($citiesIds as $key => $cityId) {
+            if ($key == 0) {
+                $trips = Trip::whereHas('cities', function ($query) use ($cityId) {
+                    $query->where('cities.id', $cityId);
+                });
+            } else {
+                $trips = $trips->whereHas('cities', function ($query) use ($cityId) {
+                    $query->where('cities.id', $cityId);
+                });
+            }
+        }
+        return $trips->get();
+    }
 }
