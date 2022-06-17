@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCityRequest extends FormRequest
+class AvailableSeatsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class StoreCityRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class StoreCityRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'start_city_id' => 'required|integer|exists:cities,id',
+            'end_city_id' => 'required|integer|exists:cities,id',
         ];
     }
 }

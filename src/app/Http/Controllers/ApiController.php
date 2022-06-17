@@ -7,6 +7,8 @@ use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Services\BookingService;
+use App\Http\Requests\MakeReservationRequest;
+use App\Http\Requests\AvailableSeatsRequest;
 
 class ApiController extends Controller
 {
@@ -22,7 +24,7 @@ class ApiController extends Controller
         return response()->json($trips);
     }
 
-    public function availableSeats(Request $request)
+    public function availableSeats(AvailableSeatsRequest $request)
     {   
         $body = $request->all();
         $response = [
@@ -31,7 +33,7 @@ class ApiController extends Controller
         return response()->json($response);
     }
 
-    public function makeReservation(Request $request)
+    public function makeReservation(MakeReservationRequest $request)
     {
         $body = $request->all();
 
