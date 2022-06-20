@@ -50,3 +50,13 @@ services:
       - "9000:9000"
     networks:
       - laravel
+
+  run_script:
+    build: 
+      context: .
+      dockerfile: run_script/DockerFile
+    container_name: run_script
+    volumes:
+      - ./src:/var/www/html
+    networks:
+      - laravel
