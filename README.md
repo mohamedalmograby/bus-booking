@@ -61,3 +61,12 @@ composer  // TODO : add  add composer image to docker composer file
 |                           | you can see all available trips and the free seats            |
 ---------------------------------------------------------------------------------------------
 ```
+
+- you can first use the register API to register new user
+  this API will return access token to be used by other requests to as and authoirzation header ( Postman will do this automiatically )
+
+- you can go to `localhost:8088/trips` to check the available trips and seats 
+- after booking a reservation you can see that the seat status has changed to booked like this 
+
+  ![image](https://user-images.githubusercontent.com/28245801/174405613-806f004d-c4f4-48d7-b14b-0396257d9b25.png)
+
