@@ -5,4 +5,5 @@ RUN docker-php-ext-install pdo_mysql
 copy ./run.sh /tmp    
 RUN apk add --update dos2unix
 RUN dos2unix /tmp/run.sh
+RUN chmod +x /tmp/run.sh
 ENTRYPOINT ["/tmp/run.sh"]
